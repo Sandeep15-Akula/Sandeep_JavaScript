@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>EPAM Sign In</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function validate(){
+        var name=document.getElementById("name").value;
+        var email=document.getElementById("email").value;
+        var phone= document.getElementById("phone").value;
+        var password=document.getElementById("password").value;
+        var cpassword=document.getElementById("cpassword").value;
+        if(name.length==0){
+            alert("name is required.");
+            document.Epam.name.focus();
+            return false;
+        }
+
+        if(phone.length==0){
+            alert("phone numder is required.")
+            document.Epam.phone.focus();
+            return false;
+        }
+        if(phone.length!=10 || phone.charAt(0)<'6'){
+            alert("Invalid Phone Number.");
+            document.Epam.phone.focus();
+            return false;
+        }
+        if(email.length==0){
+            alert("Email address is required.")
+            document.Epam.email.focus();
+            return false;
+        }
+        var atpos = email.indexOf('@');
+        var dotpos = email.lastIndexOf('.');
+        if(atpos<5 || dotpos-atpos<5)
+            {
+                alert("Invalid email address");
+                document.Epam.email.focus();
+                return false;
+            }
+        if(password.length==0){
+            alert("Password is required.")
+            document.Epam.password.focus();
+            return false;
+        }
+
+        if(!(password==cpassword)){
+            alert("Password and confirm password must be same.")
+            document.Epam.cpassword.focus();
+            return false;
+        }
+        if(!(document.Epam.rules.checked))
+            {
+                alert("You must agree for terms and conditions");
+                return false;
+            }
+    }
+</script>
+<style>
+    .task{
+align:relative;
+       border: 1px solid lightskyblue;
+      margin-top:100px;
+      margin-right:450px;  
+     margin-left:450px;
+     margin-bottom: 1000px;
+box-shadow: 0px 0px 2px 0px;
+    }
+.key{
+    box-shadow: 0px 0px 2px 0px;
+}
+    .header{
+        
+        background-color:#5bc0de;
+        text-align:center;
+         color:white;
+         font-weight: normal;
+        padding: 10px 20px 10px 5px;
+    }
+.form-group
+{
+padding: 10px 30px 0px 30px;
+}
+
+.empty{
+padding: 20px 30px 0px 30px;
+font-weight:500
+color:grey
+}
+.facebook-login {
+padding: 20px 30px 5px 30px;
+
+}
+.google-login {
+padding: 5px 30px 10px 30px;
+
+}
+.google-login img{
+width:20px;
+background-color:white;
+} 
+.epam-login {
+padding: 20px 30px 60px 30px;
+
+}
+.form-control 
+{
+
+font-weight:700
+
+}
+.close {
+    color: #fff; 
+    opacity: 1;
+
+}
+.form-group i{
+position:absolute;
+color:gray;
+padding:2px;
+
+left:830px;
+}
+.header i{
+left:475px;
+padding:7px;
+position:absolute;
+ color: #fff; 
+    opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="task">
+    
+    <form name="Epam" action="Welcome.html" method="post" onsubmit="return validate()">
+
+        <div class="header">
+<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+<Strong>EPAM PREP Registration</Strong> 
+    <button type="button" class="close" data-dismiss="modal" onclick="open(location, '_self').close();"><span aria-hidden="true" class="modal_button">&times;</span><span class="sr-only">Close</span></button>
+</div>
+
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Name" title="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="phone" placeholder="Phone Number" title="Phone Number">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="email" placeholder="Email"  title="Email"> 
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="password" title="Password">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="cpassword" placeholder="Confirm password" title="Confirm Password">
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="rules" title="Terms & Conditions"><a href=""> Terms and conditions.</a>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-info btn-block" ><b>Sign Up</b></button>
+            <button type="reset" class="btn btn-info btn-block"><b>Reset</b></button>
+        </div>
+
+        <div class="empty">
+      <table><tr><td style='width:50%'><hr/></td><td style='color:gray'>OR</td><td style='width:50%'><hr/></td></tr></table>
+
+</div>
+
+    <div class="facebook-login">
+ 
+<a href="https://www.facebook.com/" target="new"><button type="button" class="btn btn-primary btn-block" title="Sign Up With Facebook"><i class="fa fa-facebook"></i></button></a>
+  </div>
+
+<div class="google-login">
+    <a href="https://accounts.google.com/" target="new"><button type="button" class="btn btn-danger btn-block" title="Sign Up With Gmail"><i class="fa fa-google"></i></button></a>
+</div>
+
+    </form>
+</div>
+</body>
+</html>      
